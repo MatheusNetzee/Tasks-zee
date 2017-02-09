@@ -35,7 +35,7 @@ body {
 }
 
 #novaTarefa{
-  float:right;
+  margin-top: 15px;
 }
 
 #novaTarefaForm{
@@ -368,7 +368,6 @@ color:#fff;
 }
 
 .calendario-semana .calendario{
-  width: 75%;
   float: left;
   margin-top:45px;
 }
@@ -419,7 +418,6 @@ color:#fff;
 
 .calendario-dia-hoje ,
 .calendario-dia-ontem{
-  width: 35%;
   float:left;  
 }
 

@@ -5,6 +5,18 @@ use SON\DI\Container;
 
 class TarefaController extends Action{
 
+	public function tarefas(){
+		$tag = Container::getModel("Tag");
+   		$this->views->tags = $tag->listaTag();
+   		$this->views->cor = $tag->buscarTagCor();
+
+		$tarefa = Container::getModel("Tarefa");
+		$this->views->tarefas = $tarefa->listaTarefa();	
+		$this->views->atraso = $tarefa->tarefaTirarAtraso(); 
+		$this->render("Tarefas", true);
+
+	}
+
 	public function adiciona(){
 
 		$tarefa = Container::getModel("Tarefa");
@@ -26,19 +38,6 @@ class TarefaController extends Action{
 		}		
 
 	}
-
-	public function tarefas(){
-		$tag = Container::getModel("Tag");
-   		$this->views->tags = $tag->listaTag();
-   		$this->views->cor = $tag->buscarTagCor();
-
-		$tarefa = Container::getModel("Tarefa");
-		$this->views->tarefas = $tarefa->listaTarefa();	
-		$this->views->atraso = $tarefa->tarefaTirarAtraso(); 
-		$this->render("Tarefas", true);
-
-	}
-
 
 	public function alteraStatus(){
 		$tarefa = Container::getModel("Tarefa");

@@ -95,7 +95,7 @@ class Tarefa{
 		}
 	}
 
-	public function tarefaTirarAtraso(){
+	public function tarefaAdicionaAtraso(){
 		$query = "update tarefa set data = CURDATE(), estado = 'A' where data < CURDATE() and estado != 'F'";
 		$result = $this->db->query($query);
 		return $result;
