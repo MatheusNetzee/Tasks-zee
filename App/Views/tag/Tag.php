@@ -42,13 +42,13 @@
 				<?php foreach($this->views->tags as $tag): ?>
 				<tr>
 				   	<td>
-						<i class="fa fa-square" aria-hidden="true" style="color:<?=$tag['cor']?>; font-size:30px;"></i>						
+						<i class="fa fa-square" aria-hidden="true" title="<?=$tag->getNome();?>" style="color:<?=$tag->getCor();?>; font-size:30px;"></i>						
 					</td>
-					<td><?=$tag['nome']?></td>
-					<td><?=$tag['descricao']?></td>
+					<td><?=$tag->getNome();?></td>
+					<td><?=$tag->getDescricao();?></td>
 					<td class="text-center">
 						<form action="<?=URL?>removeTag" method="POST">
-							<input type="hidden" name="tag_id" value="<?=$tag['id']?>">
+							<input type="hidden" name="tag_id" value="<?=$tag->getId();?>">
 							<button class="btn btn-danger">Deletar</button>	
 						</form>
 					</td>
@@ -63,4 +63,4 @@
         <?= $_GET["msg"]; ?>
         </div>
         <?php }?>
-	</div>	
+	</div>

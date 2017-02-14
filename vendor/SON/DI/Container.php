@@ -1,12 +1,17 @@
 <?php
 namespace SON\DI;
-use App\Conn;
 
 class Container{
 
-    public static function getModel($model){
+    public static function getEntity($entity){
 
-        $class = "\\App\\Models\\".ucfirst($model);
-        return new $class(Conn::getDb());
+        $class = "\\App\\Entity\\".ucfirst($entity);
+        return new $class;
+    }
+
+    public static function getDao($dao){
+        	
+    	$class = "\\App\\Dao\\".ucfirst($dao);
+    	 return new $class;
     }
 }

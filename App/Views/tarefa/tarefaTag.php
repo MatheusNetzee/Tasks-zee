@@ -15,13 +15,13 @@ namespace App\Views\tarefa; ?>
 					<td>Data</td>
 					<td>Status</td>
 				</tr>
-			<?php foreach($this->views->buscarTarefaTag as $tarefa): 
-				 	$data = $tarefa['data'];
-                	$string = explode("-",$data);
-					$resultado = $string[2]."/".$string[1]."/".$string[0];   ?>
+  <?php foreach($this->views->tarefas as $tarefa):
+			foreach ($tarefa->getTag() as $tag):
+				if($_GET['id_tag'] == $tag->getId()):
+				 $resultado = Date_format($tarefa->getData(), "d/m/Y");?>
 				<tr>					
-					<td><i class="fa fa-square" aria-hidden="true" title="<?=$tarefa['nomeTag']?>" style="color:<?=$tarefa['cor']?>; font-size:30px;"></i> </td>
-                <?php switch ($tarefa['estado']) {
+					<td><i class="fa fa-square" aria-hidden="true" title="<?=$tag->getNome()?>" style="color:<?=$tag->getCor();?>; font-size:30px;"></i> </td>
+                <?php switch ($tarefa->getEstado()) {
 	                case "F":
 	                    $classE = "class='fin'";
 	                    break;
@@ -31,8 +31,8 @@ namespace App\Views\tarefa; ?>
 	                default:
 	                    $classE =  "";
 	                    break;} ?>
-	                <td <?=$classE?>  style="background-image:none;"><?=$tarefa['nome']?></td>
-	                <?php switch($tarefa['prioridade']){
+	                <td <?=$classE?>  style="background-image:none;"><?=$tarefa->getNome();?></td>
+	                <?php switch($tarefa->getPrioridade()){
 	                		case '1':
 	                			$prioridade = "Alta";
 	                			break;
@@ -44,10 +44,10 @@ namespace App\Views\tarefa; ?>
 	                			break;
 	                	} ?>
 	                <td><?=$prioridade?></td>  
-					<td><?=$tarefa['tempoEstimado']?> min</td>	
-					<td><?=$tarefa['descricao']?></td>
+					<td><?=$tarefa->getTempoEstimado();?> min</td>	
+					<td><?=$tarefa->getDescricao();?></td>
 					<td><?=$resultado?></td>
-					<?php switch ($tarefa['estado']) {
+					<?php switch ($tarefa->getEstado()) {
 						case 'A':
 							$status = "Atrasada";
 							break;
@@ -61,13 +61,14 @@ namespace App\Views\tarefa; ?>
 					<td> <?=$status?></td>
 									
 				</tr>
-			<?php endforeach;?>
-			<?php if($this->views->buscarTarefaTag == NULL){ ?>
-				<tr>
+			<?php 
+				endif;				
+			endforeach;
+		endforeach;
+				?>			
+<!-- 				<tr>
 					<td colspan="7" class="alert alert-info"> Não exitem tarefas dessa tag para o dia de hoje </td>
-				</tr>
-					
-			<?php } ?>
+				</tr> -->					
 			</tbody>
 		</table>		
 	</div>

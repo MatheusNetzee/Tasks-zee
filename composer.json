@@ -1,9 +1,10 @@
 {
-  "name": "son/mvc",
+  
   "require": {
     "php": ">=5.6",
-    "phpmailer/phpmailer": "~5.2"
-
+    "phpmailer/phpmailer": "~5.2",
+    "psr/cache":"*",
+    "doctrine/orm": "2.5.*"
   },
   "authors": [
     {
@@ -12,7 +13,7 @@
     }
   ],
   "autoload":{
-    "psr-4":{
+    "psr-4":{      
       "SON\\":"vendor/SON/",
       "App\\":"App/"
     }

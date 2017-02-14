@@ -16,9 +16,9 @@ class Route extends Bootstrap{
         $routes['tarefaPorTag'] = array("route" => "/tarefaTag", "controller" => "TarefaController", "action" => "tarefaTag");
 
         // tags
-        $routes['adicionaTag'] = array("route" => "/adicionaTag", "controller" => "TagController" , "action" => "adiciona");
-        $routes['removeTag'] = array("route" => "/removeTag" , "controller" => "TagController" , "action" => "remove"); 
         $routes['tag'] = array("route" => "/tag", "controller"=> "TagController", "action" => "tag");
+        $routes['adicionaTag'] = array("route" => "/adicionaTag", "controller" => "TagController" , "action" => "adiciona");
+        $routes['removeTag'] = array("route" => "/removeTag" , "controller" => "TagController" , "action" => "remove");       
 
         // email
         $routes['enviaEmail'] = array("route" => "/enviaEmail", "controller" =>"EmailController", "action" => "enviaEmail");

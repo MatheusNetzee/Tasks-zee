@@ -5,15 +5,14 @@ use SON\DI\Container;
 
 class EmailController extends Action{
 
-    public function enviaEmail(){
+	public function enviaEmail(){
 
-    	$tarefa = Container::getModel("Tarefa");
-    	$this->views->tarefas = $tarefa->listaTarefa();
+		$tarefa = Container::getDao("DaoTarefa");
+		$this->views->tarefas=  $tarefa->listaTarefa();
 
-    	$tag = Container::getModel("Tag");
-    	$this->views->cor = $tag->buscarTagCor(); 
+		$tag = Container::getDao("DaoTag");		
+		$this->views->tags = $tag->listaTag();
 
-    	$this->render("EnviarEmail", true);
-
-    }
+		$this->render("EnviaEmail", true);
+	}
 }

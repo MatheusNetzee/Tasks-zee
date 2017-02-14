@@ -1,4 +1,5 @@
-<?php require_once("../Config/config.php");
-require_once "../vendor/autoload.php";
+<?php 
+require_once __DIR__ . '/../Config/config.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $route = new \App\Route;
